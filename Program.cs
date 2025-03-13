@@ -12,21 +12,12 @@ namespace Lab1
             int n = 0;
             int capacity = 0;
 
-            Console.WriteLine("Enter seed:");
             try
             {
+                Console.WriteLine("Enter seed:");
                 line = Console.ReadLine();
                 seed = Convert.ToInt32(line);
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Invalid seed");
-                return;
-            }
-
-            Console.WriteLine("Enter number of items:");
-            try
-            {
+                Console.WriteLine("Enter number of items:");
                 line = Console.ReadLine();
                 n = Convert.ToInt32(line);
                 if (n < 0)
@@ -34,21 +25,7 @@ namespace Lab1
                     Console.WriteLine("Invalid number of items");
                     return;
                 }
-            }
-            catch (Exception)
-            {
-                Console.WriteLine("Invalid number of items");
-                return;
-            }
-
-            Problem problem = new Problem(n, seed);
-
-            Console.WriteLine("Our items and their parameters: ");
-            Console.WriteLine(problem);
-
-            Console.WriteLine("Enter capacity:");
-            try
-            {
+                Console.WriteLine("Enter capacity:");
                 line = Console.ReadLine();
                 capacity = Convert.ToInt32(line);
                 if (capacity < 0)
@@ -59,11 +36,16 @@ namespace Lab1
             }
             catch (Exception)
             {
-                Console.WriteLine("Invalid capacity");
+                Console.WriteLine("Invalid input");
                 return;
             }
 
-            Console.WriteLine("For capacity " + capacity + " we can take:");
+            Problem problem = new Problem(n, seed);
+
+            Console.WriteLine("Our items and their parameters: ");
+            Console.WriteLine(problem);
+
+            Console.WriteLine("Solution for capacity " + capacity);
             Console.WriteLine(problem.Solve(capacity));
         }
     }

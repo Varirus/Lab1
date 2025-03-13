@@ -26,7 +26,7 @@ namespace Lab1
             string output = string.Empty;
             foreach (var item in items)
             {
-                output += "Lp. " + item.id;
+                output += "No. " + item.id;
                 output += " weight: " + item.weight;
                 output += " value: " + item.value;
                 output += "\n";
@@ -44,7 +44,7 @@ namespace Lab1
             while (!isFilled)
             {
                 // No items left
-                if (sortedItems.Count == 0)
+                if (sortedItems.Count == 0 || capacity <= 0)
                     isFilled = true;
                 // Backpack capacity is too small
                 else if (sortedItems.ElementAt(0).weight > capacity)
